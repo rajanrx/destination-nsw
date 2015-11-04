@@ -1,0 +1,27 @@
+{
+  "name": "rajanrx/destination-nsw",
+  "description": "Solution for - Developer Test for Destinations NSW",
+  "keywords": [
+    "test",
+    "destinations",
+    "NSW"
+  ],
+  "homepage": "https://github.com/rajanrx/destination-nsw",
+  "type": "project",
+  "license": "NONE",
+  "support": {
+    "issues": "http://rajanr.info",
+    "source": "https://github.com/rajanrx/destination-nsw"
+  },
+  "require": {
+    "php": ">=5.4.0",
+    "php-curl-class/php-curl-class": "^4.8"
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Src\\": "Src"
+    }
+  }
+}
