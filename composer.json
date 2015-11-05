@@ -15,7 +15,8 @@
   },
   "require": {
     "php": ">=5.4.0",
-    "php-curl-class/php-curl-class": "^4.8"
+    "php-curl-class/php-curl-class": "^4.8",
+    "gilbitron/php-simplecache": "^1.4"
   },
   "require-dev": {
   },
