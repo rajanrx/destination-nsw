@@ -36,7 +36,7 @@ class Controller {
         // Include view file
         require_once($file);
 
-        //Grab the rendered view string
+        // Grab the rendered view string
         $renderedView = ob_get_contents();
         ob_end_clean();
 

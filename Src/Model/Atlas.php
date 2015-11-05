@@ -51,7 +51,7 @@ class Atlas {
 
         foreach ($response->Category as $category) {
             if ($category->Description == $categoryDesc) {
-                return $category->CategoryId;
+                return (string) $category->CategoryId;
             }
         }
 
@@ -79,7 +79,6 @@ class Atlas {
         ], $params);
 
         $apiUrl = $url . $resource . '?' . http_build_query($parameters);
-        echo $apiUrl;
         $response = Cache::get($apiUrl);
 
         if ($response == null) {
