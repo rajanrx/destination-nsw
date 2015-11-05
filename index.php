@@ -17,6 +17,8 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+
 </head>
 
 <body>
@@ -30,12 +32,14 @@
 
 <!-- Page Content -->
 <div class="container" id="content">
+    Loading ...
 </div>
 
 <!-- JavaScript -->
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/assets/js/default.js"></script>
+<script src="node_modules/bootstrap/js/modal.js"></script>
 
 </body>
 </html>

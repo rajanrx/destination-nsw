@@ -51,7 +51,7 @@ class Atlas {
 
         foreach ($response->Category as $category) {
             if ($category->Description == $categoryDesc) {
-                return (string) $category->CategoryId;
+                return (string)$category->CategoryId;
             }
         }
 
@@ -78,7 +78,7 @@ class Atlas {
             'key' => $key
         ], $params);
 
-        $apiUrl = $url . $resource . '?' . http_build_query($parameters);
+        $apiUrl   = $url . $resource . '?' . http_build_query($parameters);
         $response = Cache::get($apiUrl);
 
         if ($response == null) {
@@ -87,6 +87,44 @@ class Atlas {
 
             if ($curl->httpStatusCode >= 400) {
                 throw new \Exception('Error requesting Atlas Products. Status : ' . $curl->httpStatusCode);
+            }
+
+            $response = $curl->response;
+            Cache::set($apiUrl, $response);
+        }
+
+        return $response;
+    }
+
+    /**
+     * Gets product detail
+     * @see http://govhack.atdw.com.au/API/getproductATWS.html
+     *
+     * @param String $productId
+     *
+     * @return mixed|null
+     * @throws \Exception
+     */
+    public static function getProduct($productId) {
+
+        $key      = Config::getInstance()->get('atlas.api', 'key');
+        $url      = Config::getInstance()->get('atlas.api', 'url');
+        $resource = 'product';
+
+        $params = [
+            'key' => $key,
+            'productId' => $productId
+        ];
+
+        $apiUrl   = $url . $resource . '?' . http_build_query($params);
+        $response = Cache::get($apiUrl);
+
+        if ($response == null) {
+            $curl = new Curl();
+            $curl->get($apiUrl);
+
+            if ($curl->httpStatusCode >= 400) {
+                throw new \Exception('Error requesting Atlas Product'. $productId.'. Status : ' . $curl->httpStatusCode);
             }
 
             $response = $curl->response;

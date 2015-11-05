@@ -17,6 +17,9 @@ switch($_GET['action']){
     case 'listAll':
         ListAll();
         break;
+    case 'detail':
+        getProduct();
+        break;
     default :
         ListAll();
 }
@@ -27,5 +30,7 @@ function ListAll(){
 }
 
 function getProduct(){
-
+    $productId = $_GET['product-id'];
+    $atlasController = new AtlasController();
+    $atlasController->detail($productId);
 }

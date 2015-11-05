@@ -33,15 +33,46 @@ class AtlasController extends  Controller{
             ]);
         }
         catch (\Exception $ex) {
-            echo json_decode([
+            echo json_encode([
                 'error' => $ex->getMessage(),
                 'error-code' => $ex->getCode()
             ]);
+            return;
         }
 
         // Load the view to display the list of accomodations
         echo self::loadView('Accommodation/list', [
             'products' => $products
+        ]);
+    }
+
+    public function detail($productId){
+
+        $product = null;
+        if(empty($productId)){
+            echo json_encode([
+                'error' => 'Missing product ID !',
+                'error-code' => 400
+            ]);
+            return;
+        }
+
+        try {
+            $product = Atlas::getProduct($productId);
+        }
+        catch (\Exception $ex) {
+            echo json_encode([
+                'error' => $ex->getMessage(),
+                'error-code' => $ex->getCode()
+            ]);
+            return;
+        }
+
+        // Load the view to display accommodation detail
+        echo self::loadView('Accommodation/detail', [
+            'product' => $product->product_distribution->product_record,
+            'multimedia' => $product->product_distribution->product_multimedia,
+            'address' => $product->product_distribution->product_address
         ]);
     }
 }
