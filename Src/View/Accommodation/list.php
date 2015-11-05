@@ -13,7 +13,7 @@ if (isset($products->products->product_record) && count($products->products->pro
                         <h3><?= $product->product_name ?></h3>
                     </a>
 
-                    <p> <?= sizeof($product->product_description > 100) ? substr($product->product_description, 0, 500) . '... <a href="/functions.php?action=detail&product-id=' . $product->product_id . '." data-remote="false" data-target="#detailModal" class="displayModal"  data-product-name="<?= $product->product_name ?>"> Read More </a>' : $product->product_description ?></p>
+                    <p> <?= sizeof($product->product_description > 100) ? substr($product->product_description, 0, 500) . '... <a href="/functions.php?action=detail&product-id=' . $product->product_id . '." data-remote="false" data-target="#detailModal" class="displayModal"  data-product-name="'.$product->product_name.'"> Read More </a>' : $product->product_description ?></p>
                 </div>
             </div>
             <?php $counter++; ?>
