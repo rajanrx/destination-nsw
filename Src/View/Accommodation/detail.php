@@ -8,8 +8,8 @@
                 <?php $multimediaCount = 0; ?>
                 <?php foreach ($multimedia->row as $row) { ?>
                     <div class="item <?= $multimediaCount == 0 ? 'active' : '' ?>">
-                        <img data-src="<?= $row->server_path ?>" src="<?= $row->server_path ?>"
-                             data-holder-rendered="true" style="width: 100%;">
+                        <img class="full-width" data-src="<?= $row->server_path ?>" src="<?= $row->server_path ?>"
+                             data-holder-rendered="true">
 
                         <div class="carousel-caption">
                         </div>
@@ -40,8 +40,8 @@
         'Address' => @$product->city_name . ' ' . @$product->area_name . ' ' . @$product->state_name . ' ' . @$product->country_name
     ];
     ?>
-    <div class="col-sm-8" style="margin-bottom: 5px;">
-        <p><?= @$product->product_description ?></p>
+    <div class="col-sm-8 margin-bottom-5">
+        <p><i><?= @$product->product_description ?></i></p>
 
         <div class="col-sm-6">
             <table class="table table-hover">
@@ -57,8 +57,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-sm-6 hidden-sm hidden-xs" id="map" style="overflow: hidden; transform: translateZ(0px); background-color: rgb(229, 227, 223);">
-
+        <div class="col-sm-6 hidden-xs" id="map">
         </div>
     </div>
 
@@ -87,7 +86,5 @@
 
 
 
-    <pre style="padding-top:15px;">
-        Online booking coming soon
-    </pre>
+    <pre> </pre>
 

@@ -17,8 +17,6 @@ $products = Atlas::getProducts([
     'rg'   => 'Blue Mountains'
 ]);
 
-//print_r($products);
-
 $product = Atlas::getProduct('9053120$53072421-f579-4ebe-822f-086c91455403');
 
 print_r($product);
