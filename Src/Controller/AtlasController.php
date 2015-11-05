@@ -40,7 +40,7 @@ class AtlasController extends  Controller{
             return;
         }
 
-        // Load the view to display the list of accomodations
+        // Load the view to display the list of accommodations
         echo self::loadView('Accommodation/list', [
             'products' => $products
         ]);
